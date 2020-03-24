@@ -1,3 +1,5 @@
-*/*-venv
+**/*-venv
 *config.json
-*/csv/*.csv
+*.csv
+**/csvs
+geckodriver.log
