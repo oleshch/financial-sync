@@ -6,7 +6,7 @@ This cron logs into your Brim Mastercard accounts and downloads your transaction
 
 To setup the cron for the first time you have to:
 1. Create a python virtual environment called `brim-downloader-venv` using the following command `virtualenv --python=python3 brim-downloader-venv`
-1. Create local output and logs directories with `mkdir {logs, csvs}`
+1. Create local output and logs directories with `mkdir logs csvs`
 1. Launch the virtual environment with `source brim-downloader-venv/bin/activate`
 1. Run `pip install -r requirements.txt` to install all the dependencies
 1. Create the staging and account tables in your database using the [`create-tables.sql`](./create-tables.sql) query
