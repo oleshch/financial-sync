@@ -60,7 +60,7 @@ def download_csv():
   profile.set_preference("browser.download.folderList", 2)
   profile.set_preference("browser.download.manager.showWhenStarting", False)
   profile.set_preference("browser.helperApps.alwaysAsk.force", False);
-  profile.set_preference("browser.download.dir", script_path)
+  profile.set_preference("browser.download.dir", script_path + '/csvs')
   profile.set_preference("browser.helperApps.neverAsk.saveToDisk", "text/csv,application/octet-stream,application/csv,")
   # Opening the Browser
   browser = webdriver.Firefox(firefox_profile=profile, options=options)
@@ -92,7 +92,7 @@ def download_csv():
   logging.info(f"Closed browser session")
 
 def copy_csv_to_db(table):
-  list_of_files = glob.glob(script_path + '/statement-*.csv')
+  list_of_files = glob.glob(script_path + '/csvs/statement-*.csv')
   latest_file = max(list_of_files, key=os.path.getctime)
 
   with open(latest_file, 'r') as file:
