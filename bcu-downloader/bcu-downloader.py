@@ -23,7 +23,6 @@ if sys.platform  == "darwin" or sys.platform == "win32":
 else:
   logger.setLevel(logging.ERROR)
 
-
 # Read Config File
 script_path=os.path.dirname(os.path.realpath(__file__))
 base_folder=os.path.dirname(script_path)

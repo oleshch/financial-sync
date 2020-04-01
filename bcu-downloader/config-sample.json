@@ -1,0 +1,18 @@
+{
+    "bcu_card_number": "xxxxx",
+    "bcu_password": "xxxxx",
+    "accounts":[
+      {
+        "account": "Chequing - 1 CAD",
+        "table": "bcu_chequing"
+      },
+      {
+        "account": "Daily Savings - 1 CAD",
+        "table": "bcu_daily_savings"
+      },
+      {
+        "account": "BCULink Savings - 1 CAD",
+        "table": "bcu_bculink_savings"
+      }
+    ]
+}
