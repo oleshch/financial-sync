@@ -16,5 +16,5 @@ To setup the cron for the first time you have to:
 
 ### Crontab Command
 ```
-~/financial-sync/brim-downloader/brim-downloader-venv/bin/python ~/financial-sync/brim-downloader/brim-downloader.py >~/financial-sync/brim-downloader/logs/LOG.log 2>~/financial-sync/brim-downloader/logs/ERROR.err ; { if [ -s ~/financial-sync/brim-downloader/logs/ERROR.err ]; then cat ~/financial-sync/brim-downloader/logs/ERROR.err ; fi; } | ~/financial-sync/pushbullet-notifications/pushbullet-notification-venv/bin/python ~/analytics_crons/pushbullet-notifications/pushbullet-notification.py
+~/financial-sync/brim-downloader/brim-downloader-venv/bin/python ~/financial-sync/brim-downloader/brim-downloader.py >~/financial-sync/brim-downloader/logs/LOG.log 2>~/financial-sync/brim-downloader/logs/ERROR.err ; { if [ -s ~/financial-sync/brim-downloader/logs/ERROR.err ]; then cat ~/financial-sync/brim-downloader/logs/ERROR.err ; fi; } | ~/financial-sync/pushbullet-notifications/pushbullet-notifications-venv/bin/python ~/financial-sync/pushbullet-notifications/pushbullet-notifications.py
 ```

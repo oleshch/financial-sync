@@ -15,5 +15,5 @@ To setup the cron for the first time you have to:
 
 ### Crontab Command
 ```
-~/financial-sync/questrade-downloader/questrade-downloader-venv/bin/python ~/financial-sync/questrade-downloader/questrade-downloader.py >~/financial-sync/questrade-downloader/logs/LOG.log 2>~/financial-sync/questrade-downloader/logs/ERROR.err ; { if [ -s ~/financial-sync/questrade-downloader/logs/ERROR.err ]; then cat ~/financial-sync/questrade-downloader/logs/ERROR.err ; fi; } | ~/financial-sync/pushbullet-notifications/pushbullet-notification-venv/bin/python ~/analytics_crons/pushbullet-notifications/pushbullet-notification.py
+~/financial-sync/questrade-downloader/questrade-downloader-venv/bin/python ~/financial-sync/questrade-downloader/questrade-downloader.py >~/financial-sync/questrade-downloader/logs/LOG.log 2>~/financial-sync/questrade-downloader/logs/ERROR.err ; { if [ -s ~/financial-sync/questrade-downloader/logs/ERROR.err ]; then cat ~/financial-sync/questrade-downloader/logs/ERROR.err ; fi; } | ~/financial-sync/pushbullet-notifications/pushbullet-notifications-venv/bin/python ~/analytics_crons/pushbullet-notifications/pushbullet-notifications.py
 ```
