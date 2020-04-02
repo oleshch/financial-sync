@@ -15,4 +15,4 @@ To setup the cron for the first time you have to:
 **Acknowledgements**
 ---
 
-+ [pushbullet.py](https://github.com/rbrcsk/pushbullet.py)
++ Using [@rbrcsk](https://github.com/rbrcsk) [Pushbullet](https://github.com/rbrcsk/pushbullet.py) API wrapper
