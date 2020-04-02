@@ -1,0 +1,46 @@
+Traceback (most recent call last):
+  File "questrade-downloader.py", line 65, in <module>
+    q = Questrade(refresh_token=refresh_token)
+  File "/Users/orestl/dev/financial-sync/questrade-downloader/questrade-downloader-venv/lib/python3.7/site-packages/questrade_api/questrade.py", line 22, in __init__
+    self.auth = Auth(**auth_kwargs, config=self.config)
+  File "/Users/orestl/dev/financial-sync/questrade-downloader/questrade-downloader-venv/lib/python3.7/site-packages/questrade_api/auth.py", line 20, in __init__
+    self.__refresh_token(kwargs['refresh_token'])
+  File "/Users/orestl/dev/financial-sync/questrade-downloader/questrade-downloader-venv/lib/python3.7/site-packages/questrade_api/auth.py", line 37, in __refresh_token
+    r = request.urlopen(self.config['Auth']['RefreshURL'].format(token))
+  File "/usr/local/Cellar/python/3.7.6_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/local/Cellar/python/3.7.6_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/urllib/request.py", line 531, in open
+    response = meth(req, response)
+  File "/usr/local/Cellar/python/3.7.6_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/urllib/request.py", line 641, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/local/Cellar/python/3.7.6_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/urllib/request.py", line 569, in error
+    return self._call_chain(*args)
+  File "/usr/local/Cellar/python/3.7.6_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/urllib/request.py", line 503, in _call_chain
+    result = func(*args)
+  File "/usr/local/Cellar/python/3.7.6_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/urllib/request.py", line 649, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 400: Bad Request#!/usr/bin/env python3
+
+import os
+import sys
+import json
+from pushbullet import Pushbullet
+
+# Read Config File
+script_path=os.path.dirname(os.path.realpath(__file__))
+base_folder=os.path.dirname(script_path)
+file_path =  os.path.join(script_path, 'config.json')
+
+# Pushbullet Secrets
+with open(file_path) as file:
+  config = json.load(file)
+  api_key = config["api_key"]
+
+pb = Pushbullet(api_key)
+
+lines =  sys.stdin.read()
+
+
+print(lines)
+
+# push = pb.push_note("Fin", "Testing body")
