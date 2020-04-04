@@ -181,7 +181,7 @@ for account in accounts["accounts"]:
     logging.info(f"Sync skipped for {account_name} because start date {max_sync_date} is greater then {now}")
     continue
   else:
-    sync_start_date = max_sync_date
+    sync_start_date = datetime.combine(max_sync_date, datetime.min.time()).astimezone(tz)
 
   # Get the list of months
   month_list = month_iter(sync_start_date)
