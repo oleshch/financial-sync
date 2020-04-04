@@ -156,7 +156,7 @@ def loop_accounts(accounts):
         browser.find_elements_by_xpath('/html/body/div[2]/div[2]/div/div/div/div[4]/div[1]/div/form/table/tbody/tr[5]/td/input[1]')[0].click()
         time.sleep(5)
       except:
-        logging.info(f"Something went wrong: {account} {year}-{month}")
+        logging.error(f"Something went wrong: {account} {year}-{month}")
         break
 
       try:
