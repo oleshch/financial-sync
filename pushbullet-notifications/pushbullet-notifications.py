@@ -17,4 +17,8 @@ with open(file_path) as file:
 pb = Pushbullet(api_key)
 
 lines =  sys.stdin.read()
-push = pb.push_note("Financial Sync Error", lines)
+
+if lines == None or lines == '':
+  sys.exit(0)
+else:
+  push = pb.push_note("Financial Sync Error", lines)
