@@ -56,8 +56,10 @@ logging.info(f"Connecting to database {db_database}")
 
 # Connect to Questrade
 if os.path.exists(home_path + '/.questrade.json'):
-  q = Questrade()
-  if q.time.get('code') == 1017:
+  try:
+    q = Questrade()
+  except Exception as e:
+    logging.error(e)
     with open(home_path + '/.questrade.json') as file:
       config = json.load(file)
       q_refresh_token = config["refresh_token"]
