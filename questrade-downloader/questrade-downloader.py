@@ -160,6 +160,7 @@ try:
   accounts.get("accounts")
 except Exception as e:
   logger.error(f"Error: {e}")
+  sys.exit(1)
 finally:
   if accounts.get("accounts") == None:
     logger.error(f"Error: {accounts}")
