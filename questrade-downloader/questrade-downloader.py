@@ -7,6 +7,7 @@ import pytz
 import pprint
 import logging
 import psycopg2
+from urllib.error import HTTPError
 from datetime import datetime, timedelta
 from dateutil.rrule import rrule, MONTHLY
 from dateutil.relativedelta import relativedelta
@@ -60,17 +61,21 @@ def questrade_connect():
   q ,obj:
   Questrade connection Object
   """
-  # Force Token Refresh
-  q_auth = Auth(config=Questrade().config)
-  token = q_auth.token['refresh_token']
-  q_auth._Auth__refresh_token(token)
-
   try:
+    # Force Token Refresh
+    q_auth = Auth(config=Questrade().config)
+    token = q_auth.token['refresh_token']
+    q_auth._Auth__refresh_token(token)
     q = Questrade()
-  except Exception as e:
-    logging.error(f"Connection Error: {e}")
-
-  return q
+    return q
+  except HTTPError as err:
+    logging.error(f"Connection Error: {err}")
+    try:
+      q = Questrade(refresh_token=refresh_token)
+      return q
+    except HTTPError as err:
+      logging.error(f"Connection Error manual refresh_token: {err}")
+      sys.exit(1)
 
 def month_iter(start_date):
   """
