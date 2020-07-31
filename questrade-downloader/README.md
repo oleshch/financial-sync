@@ -1,6 +1,6 @@
 ## Questrade Downloader
 
-THis cron uses the questrade API to pull and save all the account activities for all active accounts in your questrade account.
+This cron uses the questrade API to pull and save all the account activities for all active accounts in your questrade account.
 
 ### Local Installation
 
