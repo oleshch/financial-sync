@@ -89,8 +89,11 @@ def copy_csv_to_db(connection, cursor, table):
   with open(latest_file, 'r') as file:
 
     copy_sql = f"""
-    COPY staging.{table} FROM stdin WITH CSV HEADER
+    COPY staging.{table}
+    FROM stdin
     DELIMITER as ','
+    NULL as ''
+    CSV;
     """
 
     cursor.copy_expert(sql=copy_sql, file=file)
@@ -124,10 +127,10 @@ def insert_from_staging(connection, cursor, table):
     , credit
     , balance
   FROM staging.{table}
-  WHERE date || transaction_description || debit || credit || balance NOT IN
+  WHERE concat(date, transaction_description, debit, credit,balance) NOT IN
     (
     SELECT
-    date || transaction_description || debit || credit || balance
+    concat(date, transaction_description, debit, credit,balance)
     FROM accounts.{table}
     );
   """
